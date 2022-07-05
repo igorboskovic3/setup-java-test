@@ -21,3 +21,4 @@ jobs:
     - run: |
         which java
         java -version
+        ls -la /opt/hostedtoolcache/jdk/
