@@ -38,5 +38,5 @@ jobs:
           
       - name: show dates
         run: |
-          test -f dates/d1 && cat /dates/d1 || echo 'no files'
+          test -f dates/d1 && cat dates/d1 || echo 'no files'
 
