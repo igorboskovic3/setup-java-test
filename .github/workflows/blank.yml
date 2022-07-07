@@ -13,9 +13,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
-    container:
-      image: ubuntu:20.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -25,5 +23,9 @@ jobs:
           java-version: '8'
           distribution: 'zulu'
 
-      - run:
-          ./gradlew build
+      - run: ./gradlew build
+
+      - run: ls -la .gradle
+
+      - run: du -k -s  .gradle
+
