@@ -24,6 +24,7 @@ jobs:
           distribution: 'zulu'
           cache: 'gradle'
 
+      - run: ls -la
       - run: test -d .gradle && ls -la .gradle || echo 'no .gradle'
       - run: test -d .gradle && du -k -s  .gradle || echo 'no .gradle'
 
