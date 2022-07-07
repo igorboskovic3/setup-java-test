@@ -34,7 +34,7 @@ jobs:
       - name: generate dates
         run: |
           ls -la
-          date > /dates/d1
+          date > dates/d1
           
       - name: show dates
         run: |
