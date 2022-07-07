@@ -22,6 +22,11 @@ jobs:
         with:
           java-version: '8'
           distribution: 'zulu'
+          cache: 'gradle'
+
+      - run: ./gradlew build
+
+      - run: ls -la .gradle
 
       - run: ./gradlew build
 
