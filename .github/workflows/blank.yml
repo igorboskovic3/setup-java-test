@@ -26,8 +26,8 @@ jobs:
           key: 1
       
       - run: |
-          ls dates || echo 'No dates yet'
-          test -d dates || mkdir -f dates
+          ls dates 2 > /dev/nul || echo 'No dates yet'
+          test -d dates || mkdir dates
           
       - name: Generate dates
         run: |
