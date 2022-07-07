@@ -23,11 +23,11 @@ jobs:
         id: cache
         with:
           path: dates
-          key: 1
+          key: 2
       
       - name: create dates
         run: |
-          ls dates 2 > /dev/null || echo 'No dates yet'
+          ls dates 2>/dev/null || echo 'No dates yet'
           test -d dates || mkdir dates
           ls -la
           
