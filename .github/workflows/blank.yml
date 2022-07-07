@@ -25,15 +25,18 @@ jobs:
           path: dates
           key: 1
       
-      - run: |
+      - name: create dates
+        run: |
           ls dates 2 > /dev/null || echo 'No dates yet'
           test -d dates || mkdir dates
+          ls -la
           
-      - name: Generate dates
+      - name: generate dates
         run: |
+          ls -la
           date > /dates/d1
           
-      - name: Show dates
+      - name: show dates
         run: |
           test -f dates/d1 && cat /dates/d1 || echo 'no files'
 
