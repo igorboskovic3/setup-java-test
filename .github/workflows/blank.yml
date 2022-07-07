@@ -6,9 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "cache" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,9 +20,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-java@v3
+      - uses: actions/cache@v3
+        id: cache
         with:
-          java-version: '8'
-          distribution: 'zulu'
-          java-package: jdk+fx
-          cache: gradle
+          path: dates
+          key: 1
+      
+      - run: |
+          ls dates || echo 'No dates yet'
+          test -d dates || mkdir -f dates
+          
+      - name: Generate dates
+        run: |
+          date > /dates/d1
+          
+      - name: Show dates
+        run: |
+          cat /dates/d1
+
