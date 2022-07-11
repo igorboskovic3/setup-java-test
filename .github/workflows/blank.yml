@@ -26,7 +26,7 @@ jobs:
 
       - name: force clear gradle hash gradlew props changed
         if: steps.setup-java.outputs.cache-hit != 'true'
-        run: ./gradlew cleanBuildCache
+        run: rm -r ~/.gradle/caches
 
       - run: test -d ~/.gradle && ls -la ~/.gradle/wrapper/dists || echo 'no ~/.gradle'
       - run: test -d ~/.gradle && du -k -s  ~/.gradle/wrapper/dists || echo 'no ~/.gradle'
