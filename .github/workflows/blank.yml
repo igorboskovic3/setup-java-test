@@ -19,10 +19,14 @@ jobs:
       - uses: actions/checkout@v3
 
       - uses: actions/setup-java@v3
+        id: setup-java
         with:
           java-version: '8'
           distribution: 'zulu'
-          cache: 'gradle'
+
+      - name: force clear gradle hash gradlew props changed
+        if: steps.setup-java.outputs.cache-hit != 'true'
+        run: ./gradlew cleanBuildCache
 
       - run: test -d ~/.gradle && ls -la ~/.gradle/wrapper/dists || echo 'no ~/.gradle'
       - run: test -d ~/.gradle && du -k -s  ~/.gradle/wrapper/dists || echo 'no ~/.gradle'
