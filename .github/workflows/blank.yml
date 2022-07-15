@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "secret" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "secret" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,17 +22,8 @@ jobs:
     steps:
       # - uses: actions/checkout@v3
       
-      - name: test vars
+      - name: ENV
+        run: set|grep GITHUB
         env:
-          SOMEVAR: someval
-        run: |
-          uname -a
-          hostname
-          set
+          GITHUB_TOKEN: ${{ github.token }}
 
-      - uses: actions/setup-java@v3
-        with:
-          java-version: '8'
-          distribution: 'zulu'
-          java-package: jdk+fx
-          cache: gradle
