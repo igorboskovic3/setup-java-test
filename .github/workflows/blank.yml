@@ -20,12 +20,12 @@ jobs:
     steps:
       # - uses: actions/checkout@v3
       
-      - name: Wrog secret
+      - name: Wrong secret
         run: set | grep GITHUB_TOKEN
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKENA: ${{ github.token }}
           
       - name: correct secret
         run: set | grep $GITHUB_TOKEN
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKENB: ${{ secrets.GITHUB_TOKEN }}
