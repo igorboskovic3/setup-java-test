@@ -15,9 +15,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
-    container:
-      image: ubuntu:20.04
+    runs-on: ubuntu-latest
 
     steps:
       # - uses: actions/checkout@v3
@@ -26,4 +24,8 @@ jobs:
         run: set|grep GITHUB
         env:
           GITHUB_TOKEN: ${{ github.token }}
-
+          
+      - name: ENV2
+        run: set|grep GITHUB
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
