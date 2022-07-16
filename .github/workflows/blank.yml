@@ -19,26 +19,22 @@ jobs:
     container:
       image: ubuntu:20.04
     steps:
-      - name: test vars
-        env:
-          SOMEVAR: someval
-          "SOME-VAR": some-val
-        run: |
-          uname -a
-          hostname
-          set
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'zulu'
+          java-package: jdk+fx
+          cache: gradle
           
   self-hosted:
     runs-on: self-hosted
     steps:
-      - name: test vars
-        env:
-          SOMEVAR: someval
-          "SOME-VAR": some-val
-        run: |
-          uname -a
-          hostname
-          set
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'zulu'
+          java-package: jdk+fx
+          cache: gradle
           
   container-hosted:
     runs-on: ubuntu-latest
@@ -46,27 +42,23 @@ jobs:
       image: ubuntu:20.04
 
     steps:      
-      - name: test vars
-        env:
-          SOMEVAR: someval
-          "SOME-VAR": some-val
-        run: |
-          uname -a
-          hostname
-          set
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'zulu'
+          java-package: jdk+fx
+          cache: gradle
 
   hosted:
     runs-on: ubuntu-latest
 
     steps:
-      - name: test vars
-        env:
-          SOMEVAR: someval
-          "SOME-VAR": some-val
-        run: |
-          uname -a
-          hostname
-          set
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'zulu'
+          java-package: jdk+fx
+          cache: gradle
           
 # - uses: actions/checkout@v3
           
