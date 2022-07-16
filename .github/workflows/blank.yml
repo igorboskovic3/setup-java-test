@@ -26,16 +26,6 @@ jobs:
           java-package: jdk+fx
           #cache: gradle
           
-  self-hosted:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/setup-java@v2
-        with:
-          java-version: '8'
-          distribution: 'zulu'
-          java-package: jdk+fx
-          #cache: gradle
-          
   hosted-container:
     runs-on: ubuntu-latest
     container:
