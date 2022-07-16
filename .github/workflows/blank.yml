@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  container:
+  self-hosted-container:
     runs-on: self-hosted
     container:
       image: ubuntu:20.04
@@ -24,7 +24,7 @@ jobs:
           java-version: '8'
           distribution: 'zulu'
           java-package: jdk+fx
-          cache: gradle
+          #cache: gradle
           
   self-hosted:
     runs-on: self-hosted
@@ -34,9 +34,9 @@ jobs:
           java-version: '8'
           distribution: 'zulu'
           java-package: jdk+fx
-          cache: gradle
+          #cache: gradle
           
-  container-hosted:
+  hosted-container:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:20.04
@@ -47,7 +47,7 @@ jobs:
           java-version: '8'
           distribution: 'zulu'
           java-package: jdk+fx
-          cache: gradle
+          #cache: gradle
 
   hosted:
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
           java-version: '8'
           distribution: 'zulu'
           java-package: jdk+fx
-          cache: gradle
+          #cache: gradle
           
 # - uses: actions/checkout@v3
           
