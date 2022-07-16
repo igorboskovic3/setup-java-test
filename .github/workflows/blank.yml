@@ -25,14 +25,16 @@ jobs:
       - name: test vars
         env:
           SOMEVAR: someval
+          SOME-VAR: some-val
         run: |
           uname -a
           hostname
           set
 
-      - uses: actions/setup-java@v3
-        with:
-          java-version: '8'
-          distribution: 'zulu'
-          java-package: jdk+fx
-          cache: gradle
+#      - uses: actions/setup-java@v3
+#        with:
+#          java-version: '8'
+#          distribution: 'zulu'
+#          java-package: jdk+fx
+#          cache: gradle
+#
