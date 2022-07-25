@@ -12,17 +12,48 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  execuction-configuration:
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Build with Apache Maven
-        run: mvn --batch-mode package
-
-      - name: Publish to GitHub Packages Apache Maven
-        run: mvn --batch-mode deploy -Drevision="1.0.0"
+      - name: Import GPG private key
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        run: |
+          f=`mktemp`
+          echo "${MAVEN_GPG_PRIVATE_KEY}" "$f"
+          gpg --batch --import-options import-show --import "$f"
+
+      - name: Set up pom.xml
+        run: cp pom-execution-configuration.xml pom.xml
+
+      - name: Build with Apache Maven
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: mvn --batch-mode verify gpg:sign
+
+  plugin-configuration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Import GPG private key
+        env:
+          MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        run: |
+          f=`mktemp`
+          echo "${MAVEN_GPG_PRIVATE_KEY}" "$f"
+          gpg --batch --import-options import-show --import "$f"
+
+      - name: Set up pom.xml
+        run: cp pom-plugin-configuration.xml pom.xml
+
+      - name: Build with Apache Maven
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: mvn --batch-mode verify gpg:sign
