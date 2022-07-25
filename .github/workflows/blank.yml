@@ -25,7 +25,7 @@ jobs:
         run: |
           f=`mktemp`
           echo "${MAVEN_GPG_PRIVATE_KEY}" "$f"
-          gpg --batch --import-options import-show --import "$f"
+          gpg --no-check-certificate --batch --import-options import-show --import "$f"
 
       - name: Set up pom.xml
         run: cp pom-execution-configuration.xml pom.xml
@@ -48,7 +48,7 @@ jobs:
         run: |
           f=`mktemp`
           echo "${MAVEN_GPG_PRIVATE_KEY}" "$f"
-          gpg --batch --import-options import-show --import "$f"
+          gpg --no-check-certificate --batch --import-options import-show --import "$f"
 
       - name: Set up pom.xml
         run: cp pom-plugin-configuration.xml pom.xml
