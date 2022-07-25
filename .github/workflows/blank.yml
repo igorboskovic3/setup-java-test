@@ -23,9 +23,11 @@ jobs:
         env:
           MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
         run: |
+          sudo apt-get update
+          sudo apt-get install ca-certificates
           f=`mktemp`
           echo "${MAVEN_GPG_PRIVATE_KEY}" "$f"
-          gpg --no-check-certificate --batch --import-options import-show --import "$f"
+          gpg --batch --import-options import-show --import "$f"
 
       - name: Set up pom.xml
         run: cp pom-execution-configuration.xml pom.xml
@@ -46,9 +48,11 @@ jobs:
         env:
           MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
         run: |
+          sudo apt-get update
+          sudo apt-get install ca-certificates
           f=`mktemp`
           echo "${MAVEN_GPG_PRIVATE_KEY}" "$f"
-          gpg --no-check-certificate --batch --import-options import-show --import "$f"
+          gpg --batch --import-options import-show --import "$f"
 
       - name: Set up pom.xml
         run: cp pom-plugin-configuration.xml pom.xml
