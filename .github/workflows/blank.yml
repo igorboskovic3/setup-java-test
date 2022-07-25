@@ -57,3 +57,18 @@ jobs:
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
         run: mvn --batch-mode verify gpg:sign
+
+  no-configuration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up pom.xml
+        run: cp pom-plugin-configuration.xml pom.xml
+
+      - name: Build with Apache Maven
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: mvn --batch-mode verify gpg:sign -Dgpg.passphrase=$MAVEN_GPG_PASSPHRASE
