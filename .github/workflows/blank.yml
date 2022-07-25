@@ -33,7 +33,7 @@ jobs:
       - name: Build with Apache Maven
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-        run: mvn --batch-mode verify gpg:sign
+        run: mvn --batch-mode verify gpg:sign -Dgpg.passphrase=$MAVEN_GPG_PASSPHRASE
 
   plugin-configuration:
     runs-on: ubuntu-latest
@@ -56,7 +56,7 @@ jobs:
       - name: Build with Apache Maven
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-        run: mvn --batch-mode verify gpg:sign
+        run: mvn --batch-mode verify gpg:sign -Dgpg.passphrase=$MAVEN_GPG_PASSPHRASE
 
   no-configuration:
     runs-on: ubuntu-latest
