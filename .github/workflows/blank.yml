@@ -24,8 +24,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            .m2
-            repository
+            ~/.m2
+            ~/repository
           key: ${{ github.job }}-${{ hashFiles('**/pom.xml') }}
 
       - name: Import GPG private key
