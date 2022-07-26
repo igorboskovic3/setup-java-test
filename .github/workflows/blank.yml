@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: show job name
         env:
-          NM: ${{ job.name }}
+          NM: ${{ github.job }}
         run: |
           echo "env $NM"
-          echo "run ${{ job.name }}"
+          echo "run ${{ github.job }}"
