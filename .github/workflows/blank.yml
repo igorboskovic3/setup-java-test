@@ -21,8 +21,13 @@ jobs:
     steps:
       - run: |
           whoami
+          pwd
+          echo $HOME
           cat /etc/passwd
       - run: |
+          whoami
+          pwd
+          echo $HOME
           echo "Hello World!" > /root/sample.txt
           ls -la ~/sample.txt
           cat ~/sample.txt
