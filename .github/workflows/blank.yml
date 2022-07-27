@@ -22,8 +22,7 @@ jobs:
       - run: |
           whoami
           pwd
-          echo $HOME
-          cat /etc/passwd
+          set
       - run: |
           whoami
           pwd
