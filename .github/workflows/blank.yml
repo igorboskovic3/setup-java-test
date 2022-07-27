@@ -22,5 +22,3 @@ jobs:
       - run: |
           whoami
           cat /etc/passwd
-          dnf install maven
-          mvn help:evaluate -Dexpression=settings.localRepository
