@@ -23,7 +23,7 @@ jobs:
           whoami
           cat /etc/passwd
       - run: |
-          echo "Hello World!" > /root/.m2/repository/sample.txt
+          echo "Hello World!" > /root/sample.txt
           ls -la ~/sample.txt
           cat ~/sample.txt
         name: test ~/ dir
