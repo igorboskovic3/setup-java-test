@@ -31,3 +31,5 @@ jobs:
           ls -la ~/sample.txt
           cat ~/sample.txt
         name: test ~/ dir
+        env:
+          HOME: /root
