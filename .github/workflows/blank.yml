@@ -16,6 +16,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - run: ls -la
       - uses: actions/setup-java@v3
         with:
           distribution: jdkfile
