@@ -22,3 +22,8 @@ jobs:
           distribution: jdkfile
           jdkFile: openjdk-19-jextract+2-3_linux-x64_bin.tar.gz
           java-version: 19.0.0+0-jextract
+      - name: test jextract+2-3
+        run: |
+          which java
+          echo $PATH
+          set|grep JAVA
