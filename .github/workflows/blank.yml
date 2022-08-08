@@ -19,5 +19,5 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: jdkfile
-          jdkFile: .../openjdk-19-jextract+2-3_linux-x64_bin.tar.gz
+          jdkFile: openjdk-19-jextract+2-3_linux-x64_bin.tar.gz
           java-version: 19.0.0+0-jextract
