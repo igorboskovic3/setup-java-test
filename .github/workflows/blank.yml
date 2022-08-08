@@ -44,3 +44,16 @@ jobs:
           java --version
           echo $PATH
           set|grep JAVA     
+          
+      - uses: actions/setup-java@v3
+        name: install copy of openjdk-19-ea+34
+        with:
+          distribution: jdkfile
+          jdkFile: openjdk-19-ea+34_linux-x64_bin.tar.gz
+          java-version: 19-ea-2
+      - name: test ea+34
+        run: |
+          which java
+          java --version
+          echo $PATH
+          set|grep JAVA    
