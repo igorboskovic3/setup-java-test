@@ -16,7 +16,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: ls -la
+      - run: curl https://download.java.net/java/early_access/jextract/2/openjdk-19-jextract+2-3_linux-x64_bin.tar.gz -o openjdk-19-jextract+2-3_linux-x64_bin.tar.gz
       - uses: actions/setup-java@v3
         with:
           distribution: jdkfile
