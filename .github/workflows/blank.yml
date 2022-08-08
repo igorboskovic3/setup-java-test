@@ -27,6 +27,7 @@ jobs:
       - name: test jextract+2-3
         run: |
           which java
+          java --version
           echo $PATH
           set|grep JAVA
           
@@ -38,5 +39,6 @@ jobs:
       - name: test ea+34
         run: |
           which java
+          java --version
           echo $PATH
           set|grep JAVA     
