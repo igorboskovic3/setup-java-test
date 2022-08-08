@@ -16,7 +16,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: curl https://download.java.net/java/early_access/jextract/2/openjdk-19-jextract+2-3_linux-x64_bin.tar.gz -o openjdk-19-jextract+2-3_linux-x64_bin.tar.gz
+      - run: |
+          curl https://download.java.net/java/early_access/jextract/2/openjdk-19-jextract+2-3_linux-x64_bin.tar.gz -o openjdk-19-jextract+2-3_linux-x64_bin.tar.gz
+          curl https://download.java.net/java/early_access/jdk19/34/GPL/openjdk-19-ea+34_linux-x64_bin.tar.gz -o openjdk-19-ea+34_linux-x64_bin.tar.gz
       - uses: actions/setup-java@v3
         with:
           distribution: jdkfile
@@ -27,3 +29,14 @@ jobs:
           which java
           echo $PATH
           set|grep JAVA
+          
+      - uses: actions/setup-java@v3
+        with:
+          distribution: jdkfile
+          jdkFile: openjdk-19-ea+34_linux-x64_bin.tar.gz
+          java-version: 19
+      - name: test ea+34
+        run: |
+          which java
+          echo $PATH
+          set|grep JAVA     
