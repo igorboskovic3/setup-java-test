@@ -37,7 +37,7 @@ jobs:
         with:
           distribution: jdkfile
           jdkFile: openjdk-19-ea+34_linux-x64_bin.tar.gz
-          java-version: 19.0.2
+          java-version: 19
       - name: test ea+34
         run: |
           which java
