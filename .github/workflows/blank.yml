@@ -6,22 +6,16 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  self-hosted-container:
-    runs-on: self-hosted
-    container:
-      image: ubuntu:20.04
+  run-emulator:
+    runs-on: macos-11
+
     steps:
-      - uses: actions/setup-java@v2
-        with:
-          java-version: '8'
-          distribution: 'zulu'
-          java-package: jdk+fx
-          #cache: gradle
+      - run: |
+          echo "i am here"
+        
