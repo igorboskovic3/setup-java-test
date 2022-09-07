@@ -49,12 +49,14 @@ jobs:
       - name: Start Android emulator
         run: |
           echo "Starting emulator and waiting for boot to complete...."
-          nohup $ANDROID_HOME/emulator/emulator -avd Pixel_API_29_AOSP -no-snapshot -no-window -no-audio -no-boot-anim -camera-back none -camera-front none -qemu -m 2048 > /dev/null 2>&1 &
+          nohup $ANDROID_HOME/emulator/emulator -avd Pixel_API_29_AOSP -no-snapshot -no-window -no-audio -no-boot-anim -camera-back none -camera-front none -qemu -m 2048 2>&1 &
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do echo "wait..."; sleep 1; done; input keyevent 82'
           echo "Emulator has finished booting"
           $ANDROID_HOME/platform-tools/adb devices
           screencapture screenshot.jpg
           $ANDROID_HOME/platform-tools/adb exec-out screencap -p > emulator.png
+          ls
+          cat nohup.out
           
       - uses: actions/upload-artifact@v3
         with:
