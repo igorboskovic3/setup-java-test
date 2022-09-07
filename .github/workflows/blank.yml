@@ -53,10 +53,10 @@ jobs:
           # $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
           echo "Emulator has finished booting"
           $ANDROID_HOME/platform-tools/adb devices
-          screencapture /tmp/screenshot.jpg
+          screencapture screenshot.jpg
           
       - uses: actions/upload-artifact@v3
         with:
           name: screenshot.jpg
-          path: /tmp/screenshot.jpg
+          path: screenshot.jpg
     
