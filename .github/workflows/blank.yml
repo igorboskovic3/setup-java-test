@@ -59,6 +59,7 @@ jobs:
           $ANDROID_HOME/platform-tools/adb devices
           screencapture screenshot.jpg
           $ANDROID_HOME/platform-tools/adb exec-out screencap -p > emulator.png
+          osascript click.as
           
       - uses: actions/upload-artifact@v3
         with:
