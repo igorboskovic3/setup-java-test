@@ -54,7 +54,7 @@ jobs:
           echo "Emulator has finished booting"
           $ANDROID_HOME/platform-tools/adb devices
           screencapture screenshot.jpg
-          $ANDROID_HOME/platform-tools/adb adb exec-out screencap -p > emulator.png
+          $ANDROID_HOME/platform-tools/adb exec-out screencap -p > emulator.png
           
       - uses: actions/upload-artifact@v3
         with:
