@@ -16,6 +16,11 @@ jobs:
     runs-on: macos-12
   
     steps: 
+      - name: Java version
+        run: |
+          which java
+          java --version
+          
       - name: Download image
         run: |
           set -x
